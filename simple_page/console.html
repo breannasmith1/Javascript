@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    
+<head>
+    
+<title>Using the JavaScript Console</title>
+    
+<meta charset="utf-8">
+    
+</head>
+    
+<body>
+
+<h1 id = "myHeading">Using the JavaScript Console</h1>
+
+<p id = "myParagraph">This is my exciting paragraph.</p>
+
+<p>This paragraph contains a link to <a id="myLink" href="http://www.pcc.edu">PCC</a></p>
+
+<p>This paragraph contains a <span id = "mySpan">word</span> that I want to format.</p>
+
+<script>
+
+document.getElementById("myHeading").style.color = "red";
+
+console.log("I go to PCC!");
+
+console.log(5 + 6);
+
+    
+console.log(document.getElementById("myHeading").innerHTML);
+    
+console.log(document.getElementById("myParagraph").innerHTML);
+
+console.log(document.getElementById("myHeading").style.color);
+    
+console.log(document.getElementById("myHeading").innerHTML);
+    
+console.log(document.getElementById("myParagraph").innerHTML);
+
+console.log(document.getElementById("mySpan").innerHTML);
+    
+console.log(document.getElementById("myLink").innerHTML);
+
+console.log(document.getElementById("myLink").href);
+    
+document.getElementById("myHeading").innerHTML="My Exciting New Heading";
+    
+document.getElementById("myHeading").style.color="green";
+    
+document.getElementById("myParagraph").innerHTML="New Paragraph";
+    
+document.getElementById("myLink").innerHTML="Microsoft";
+    
+document.getElementById("myLink").href="http://www.microsoft.com";
+    
+document.getElementById("mySpan").innerHTML="New Word";
+
+</script>
+
+</body>
+
+</html>
+ 

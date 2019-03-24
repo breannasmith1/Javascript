@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<script type="text/javascript">
+		
+	
+        function validateForm() {
+            let name = document.getElementById("txtName");
+            let email = document.getElementById("txtEmail");
+            let salary = document.getElementById("txtSalary");
+            let dob = document.getElementById("txtDOB");
+
+            let hasName = false;
+            let hasEmail = false;
+            let hasSalary = false;
+            let hasDOB = false;
+			let isValid = false;
+
+            if (name.value.length > 1 && name.value != " ") {
+                hasName = true;
+            }
+   
+            if (email.value.length > 0) {
+
+                let patt = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+                if (patt.test(email.value)) {
+                    hasEmail = true;
+                }
+            }
+
+            salary = parseInt(salary.value);
+            if (salary <= 100000 && salary >= 2000) {
+                hasSalary = true;
+            }
+
+            let currentDate = new Date();
+            let oldDate = new Date("1/1/1900");
+            dob = new Date(dob.value);
+            if (dob > oldDate && dob.getFullYear() < currentDate.getFullYear()) {
+                hasDOB = true;
+            }
+            if (hasName == true && hasEmail == true && hasSalary == true && hasDOB == true) {
+                return true;
+            }
+     
+            if (isValid != true) {
+				
+                if (hasName != true) {
+                    alert(errorMessage("name"));
+					
+                } else if (hasEmail != true) {
+                    alert(errorMessage("email"));
+					
+                } else if (hasSalary != true) {
+                    alert(errorMessage("salary"));
+					
+                } else if (hasDOB != true) {
+                    alert(errorMessage("age"));
+                }
+            }
+            return true;
+        }
+
+        function errorMessage(err) {
+            let value;
+			
+            if (err == "name") {
+                value = "your name.";
+				
+            } else if (err == "email") {
+                value = "that your email was entered correctly. You may include capital and lowercase letters, numbers and . - _ symbols.";
+				
+            } else if (err == "salary") {
+                value = "that your salary is between 20000 and 100000.";
+				
+            } else if (err == "age") {
+                value = "that you entered your birthday correctly.";
+
+            }
+			
+            let message = "Please verify " + value;
+            return message;
+        }
+		
+	</script>
+
+</head>
+	<body>
+	
+	<h1>Fill out this form!</h1>
+
+	<form id="frmMain" onSubmit="validateForm()">
+		<table width="400" border="1">
+			<tr>
+			<td>
+		Name:
+			<input type="text" id="txtName">
+		</td>
+		</tr>
+			<tr>
+			<td>
+		Email:
+			<input type="text" id="txtEmail">
+		</td>
+		</tr>
+			<tr>
+			<td>
+		Salary:
+			<input type="text" id="txtSalary">
+		</td>
+		</tr>	
+			<tr>
+			<td>
+		Date of Birth:
+			<input type="text" id="txtDOB">
+		</td>
+		</tr>
+			<tr>
+			<td>
+
+		<input type="submit" value="Submit">
+		</td>
+		</tr>
+		</table>
+	</form>
+	
+	</body>
+</html>

@@ -1,0 +1,106 @@
+<DOCTYPE! html>
+
+<html lang="en">
+	
+<head>
+	<title>Foods</title>
+	
+	<script type="text/javascript">
+
+	function getFoods() {
+		   retVal = ["Choose an Option", "Meat", "Seafood", "Fruit", "Vegetables"];
+		   return retVal;
+	}
+
+	function getFoodItems(food) {
+	   retVal="";
+
+	   switch(food){
+			   
+		   case "Meat":
+		   retVal = ["Beef", "Chicken", "Pork", "Lamb"];
+			   break;
+
+		   case "Seafood":
+		   retVal = ["Salmon", "Halibut", "Shrimp", "Lobster", "King Crab"];
+			   break;
+
+		   case "Fruit":
+		   retVal = ["Apples", "Oranges", "Pineapple", "Tangelo", "Lemon", "Mango"];
+			   break;
+
+		   case "Vegetables":
+		   retVal = ["Broccoli", "Squash", "Avocado", "Mushroom", "Asparagus", "Spinach"];
+			   break;
+
+	}
+
+	   return retVal;
+	}
+
+	function itemNames() {
+		  foodList = document.getElementById("foodList");
+
+		   food="";
+
+		  for(i=0;i<foodList.options.length;i++) {
+		   if(foodList.options[i].selected==true){
+		   food=foodList.options[i].value;
+		   break;
+		}
+	
+	}
+
+
+	   items = getFoodItems(food);
+
+	   selItem = document.getElementById("food");
+		selItem.options.length=0;
+
+		 for(x=0;x<items.length;x++) {
+
+		   newOpt = document.createElement("option");
+		   newOpt.value=items[x];
+		   newOpt.innerHTML=items[x];
+
+		   selItem.appendChild(newOpt);
+		}
+
+	}
+
+	function initPage() {
+		
+		 myFoods = getFoods();
+		 mySelect = document.getElementById("foodList");
+		  
+
+		for(i=0;i<myFoods.length;i++){
+
+		   newOpt = document.createElement("option");
+		   newOpt.value=myFoods[i];
+		   newOpt.innerHTML=myFoods[i];
+
+		   mySelect.appendChild(newOpt);
+		}
+	}
+
+	</script>
+</head>
+
+<body onload="initPage();">
+
+<main>
+
+<form>
+	  <select id="foodList" onchange="itemNames();">
+	  </select>
+	</form>
+
+<form>
+	  <select id="food">
+	  </select>
+	</form>
+		
+	</main>
+</body>
+</html>
